@@ -1,33 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import EmojiCard from './components/EmojiCard'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const emojiObject = [
+    {
+      emojiName: "Happy",
+      emoji:"😇",
+      quote:"\"Happiness is not by chance, but by choice.\" – Jim Rohn" ,
+    
+    },
+    {
+      emojiName: "Sad",
+      emoji:"😔",
+      quote:"\"Sadness flies away on the wings of time.\" – Jean de La Fontaine" ,
+    
+    }, {
+      emojiName: "Angry",
+      emoji:"😠",
+      quote:"\"For every minute you are angry, you lose sixty seconds of happiness.\" – Ralph Waldo Emerson"
+    
+    }, {
+      emojiName: "Anxious",
+      emoji:"😰",
+      quote:"\"Nothing diminishes anxiety faster than action.\" – Walter Anderson"
+    
+    }, {
+      emojiName: "Calm",
+      emoji:"😌",
+      quote:"\"Peace comes from within. Do not seek it without.\" – Buddha" 
+    
+    },
+    {
+      emojiName: "Tired",
+      emoji:"😪",
+      quote:"\"Rest when you're weary. Refresh and renew yourself.\" – Ralph Marston" ,
+    
+    },
+    {
+      emojiName: "Loved",
+      emoji:"🥰",
+      quote:"\"To love and be loved is to feel the sun from both sides.\" – David Viscott" ,
+    
+    }
+  ];
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     {emojiObject.map((mood)=>{
+      return <EmojiCard key={mood.emojiName} {...mood}/>
+     } )}
+      
     </>
   )
 }
