@@ -1,5 +1,6 @@
 import EmojiCard from './components/EmojiCard'
 import './App.css'
+import QuoteOfTheDay from './components/QuoteOfTheDay';
 
 function App() {
   const emojiObject = [
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <>
+      <QuoteOfTheDay/>
      {emojiObject.map((mood)=>{
       return <EmojiCard key={mood.emojiName} {...mood}/>
      } )}
