@@ -9,14 +9,32 @@ const [author, setAuthor] = useState("")
 
 
     useEffect(()=>{
+
+        const storedQuote = localStorage.getItem("quote");
+        const storedAuthor = localStorage.getItem("author");
+        const storedDate  = localStorage.getItem("today");
+
+        const today = new Date().toISOString().split("T")[0];
+
+        if(storedAuthor && storedQuote && storedDate === today){
+            console.log("local storage used");
+            setQuote(storedQuote);
+            setAuthor(storedAuthor);
+        }else{
+
         async function fetchQuote(){
             try {
                 const response = await fetch(url);
+                console.log("API called");
                     if(response.ok){
                         const data = await response.json();
                         const parsedData = JSON.parse(data.contents); 
                         setQuote(parsedData[0].q);
                         setAuthor(parsedData[0].a);
+                        localStorage.setItem("quote", parsedData[0].q);
+                        localStorage.setItem("author", parsedData[0].a);
+                        localStorage.setItem("today",today);
+
                     }else{
                         console.log("can't fecth");
                     }
@@ -26,6 +44,7 @@ const [author, setAuthor] = useState("")
             }
         }
         fetchQuote();
+    }
     },[])
     
     
