@@ -50,9 +50,9 @@ function QuoteOfTheDay() {
 
     return (
         <>
-            <div id="quote-cotainer" className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-                <h3 style={{color: "gray", fontFamily:"cursive", fontWeight:"400", fontSize:"23px"}}>"{quote}"</h3>
-                <p style={{color: "gray"}}> - {author}</p>
+            <div id="quote-cotainer" className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4">
+                <h3 style={{color: "gray", fontFamily:"cursive", fontWeight:"400", fontSize:"23px"}} >"{quote}"</h3>
+                <p style={{color: "gray", fontFamily:"cursive", fontWeight:"400", fontSize:"23px"}}> - {author}</p>
             </div>
         </>
     )
