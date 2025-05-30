@@ -1,7 +1,17 @@
 function EmojiCard({ emojiName, emoji, quote , onMoodSelect}) {
 
     const handleClick = () =>{
-        onMoodSelect({mood:emojiName})
+        const now = new Date();
+        const today =  `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
+        const newMood = {
+            mood: emojiName,
+            date: today
+        }
+        
+        const moodHistory = JSON.parse(localStorage.getItem("todayMood")) || [];
+        moodHistory.push(newMood);
+        localStorage.setItem("todayMood", JSON.stringify(moodHistory));
+        onMoodSelect(newMood);
     }
 
     return (

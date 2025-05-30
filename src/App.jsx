@@ -8,61 +8,65 @@ function App() {
   const emojiObject = [
     {
       emojiName: "Happy",
-      emoji:"😇",
-      quote:"\"Happiness is not by chance, but by choice.\" – Jim Rohn" ,
-    
+      emoji: "😇",
+      quote: "\"Happiness is not by chance, but by choice.\" – Jim Rohn",
+
     },
     {
       emojiName: "Sad",
-      emoji:"😔",
-      quote:"\"Sadness flies away on the wings of time.\" – Jean de La Fontaine" ,
-    
+      emoji: "😔",
+      quote: "\"Sadness flies away on the wings of time.\" – Jean de La Fontaine",
+
     }, {
       emojiName: "Angry",
-      emoji:"😠",
-      quote:"\"For every minute you are angry, you lose sixty seconds of happiness.\" – Ralph Waldo Emerson"
-    
+      emoji: "😠",
+      quote: "\"For every minute you are angry, you lose sixty seconds of happiness.\" – Ralph Waldo Emerson"
+
     }, {
       emojiName: "Anxious",
-      emoji:"😰",
-      quote:"\"Nothing diminishes anxiety faster than action.\" – Walter Anderson"
-    
+      emoji: "😰",
+      quote: "\"Nothing diminishes anxiety faster than action.\" – Walter Anderson"
+
     }, {
       emojiName: "Calm",
-      emoji:"😌",
-      quote:"\"Peace comes from within. Do not seek it without.\" – Buddha" 
-    
+      emoji: "😌",
+      quote: "\"Peace comes from within. Do not seek it without.\" – Buddha"
+
     },
     {
       emojiName: "Tired",
-      emoji:"😪",
-      quote:"\"Rest when you're weary. Refresh and renew yourself.\" – Ralph Marston" ,
-    
+      emoji: "😪",
+      quote: "\"Rest when you're weary. Refresh and renew yourself.\" – Ralph Marston",
+
     },
     {
       emojiName: "Loved",
-      emoji:"🥰",
-      quote:"\"To love and be loved is to feel the sun from both sides.\" – David Viscott" ,
-    
+      emoji: "🥰",
+      quote: "\"To love and be loved is to feel the sun from both sides.\" – David Viscott",
+
     }
   ];
 
   const [selectMood, setSelectMood] = useState("");
 
-  function handleMoodSelect(moodObj){
+
+  function handleMoodSelect(moodObj) {
     setSelectMood(moodObj);
   }
+  const hasTodayMood = localStorage.getItem("todayMood") !== null;
 
   return (
     <>
-      <QuoteOfTheDay/>
-    <div id="emoji-container">
-     {emojiObject.map((mood)=>{
-      return <EmojiCard key={mood.emojiName} {...mood} onMoodSelect={handleMoodSelect}/>
-     } )}
+      <QuoteOfTheDay />
+      <div id="emoji-container">
+        {emojiObject.map((mood) => {
+          return <EmojiCard key={mood.emojiName} {...mood} onMoodSelect={handleMoodSelect} />
+        })}
       </div>
+      {
+        hasTodayMood && (<TodayMood mood={selectMood} />)
+      }
 
-    <TodayMood mood={selectMood}/>
     </>
   )
 }
