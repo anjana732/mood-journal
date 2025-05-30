@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
-#emoji-container{
+/* #emoji-container{
+  display: flex;
+} */
+
+#quote-cotainer{
   display: flex;
 }
+/* #main-div{
+  display: flex;
+} */
 
 /* #root {
   max-width: 1280px;

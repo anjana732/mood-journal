@@ -62,17 +62,41 @@ function App() {
 
   return (
     <>
-      <QuoteOfTheDay />
-      <div id="emoji-container">
-        {emojiObject.map((mood) => {
-          return <EmojiCard key={mood.emojiName} {...mood} onMoodSelect={handleMoodSelect} />
-        })}
-      </div>
-      {
-        hasTodayMood && (<TodayMood todayMood={selectMood} onClearHoistory={handleClearHistory}/>)
-      }
+    <QuoteOfTheDay />
+    <center style={{fontSize:"30px", fontWeight:"bolder" , color:"gray" }} className="mb-5">How's Your day Today ?</center>
+  
+   <div
+  id="main-div"
+  className="flex flex-col lg:flex-row px-4 max-w-7xl mx-auto w-full box-border relative"
+>
 
-    </>
+  {/* EmojiCard Section */}
+  <div
+    id="emoji-container"
+    className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 ${
+      hasTodayMood ? 'lg:w-3/4' : 'w-full'
+    }`}
+  >
+    {emojiObject.map((mood) => (
+      <EmojiCard key={mood.emojiName} {...mood} onMoodSelect={handleMoodSelect} />
+    ))}
+  </div>
+
+  {/* TodayMood Section — smaller */}
+  {hasTodayMood && (
+    <div className="lg:w-1/4 w-full flex justify-center">
+    
+        <TodayMood
+          todayMood={selectMood}
+          onClearHoistory={handleClearHistory}
+        />
+    
+    </div>
+  )}
+</div>
+
+  </>
+  
   )
 }
 
