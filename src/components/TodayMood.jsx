@@ -1,13 +1,12 @@
-import { useState } from "react";
 
-function TodayMood({mood}){
 
-    const[todayMood, setTodayMood] = useState(JSON.parse(localStorage.getItem("todayMood")))
-     console.log("today Mood....", todayMood);
+function TodayMood({todayMood,onClearHoistory}){
+
+    // const[todayMood, setTodayMood] = useState(JSON.parse(localStorage.getItem("todayMood")))
+    //  console.log("today Mood....", todayMood);
     
     const handleClearHistory = () =>{
-        localStorage.removeItem("todayMood");
-        setTodayMood(JSON.parse(localStorage.getItem("todayMood")) || []);
+        onClearHoistory(localStorage.removeItem("todayMood"));
     }
 
     

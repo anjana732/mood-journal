@@ -11,7 +11,7 @@ function EmojiCard({ emojiName, emoji, quote , onMoodSelect}) {
         const moodHistory = JSON.parse(localStorage.getItem("todayMood")) || [];
         moodHistory.push(newMood);
         localStorage.setItem("todayMood", JSON.stringify(moodHistory));
-        onMoodSelect(newMood);
+        onMoodSelect(moodHistory);
     }
 
     return (

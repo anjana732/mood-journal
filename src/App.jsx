@@ -47,12 +47,17 @@ function App() {
     }
   ];
 
-  const [selectMood, setSelectMood] = useState("");
-
-
-  function handleMoodSelect(moodObj) {
-    setSelectMood(moodObj);
+  const [selectMood, setSelectMood] = useState(() => {
+    return JSON.parse(localStorage.getItem("todayMood")) || [];
+  });
+  function handleMoodSelect(updateMoodHistory) {
+    setSelectMood(updateMoodHistory);
   }
+
+  function handleClearHistory(){
+    setSelectMood([]);
+  }
+  
   const hasTodayMood = localStorage.getItem("todayMood") !== null;
 
   return (
@@ -64,7 +69,7 @@ function App() {
         })}
       </div>
       {
-        hasTodayMood && (<TodayMood mood={selectMood} />)
+        hasTodayMood && (<TodayMood todayMood={selectMood} onClearHoistory={handleClearHistory}/>)
       }
 
     </>
