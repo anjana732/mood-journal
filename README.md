@@ -8,13 +8,9 @@
 
 - [Features](#features)
 - [Live Preview](#live-preview)
-- [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-- [Folder Structure](#folder-structure)
 - [Core Components](#core-components)
-- [Styling & UI](#styling--ui)
-- [Future Enhancements](#future-enhancements)
 - [Author](#author)
 
 ---
@@ -35,13 +31,6 @@
 
 > Coming soon 
 
----
-
-## 🖼️ Screenshots
-
-> (Add screenshots of key parts of the application )
-
----
 
 ## 🛠️ Tech Stack
 
@@ -69,3 +58,46 @@
    ```bash
    git clone https://github.com/anjana732/mood-journal.git
    cd mood-journal
+   ```
+2. Start the Development Server
+
+   ```bash
+   npm run dev
+   ```
+3. Visit the app in your browser at:
+
+   ```bash
+   http://localhost:5173
+    ```
+   
+## ⚙️ Core Components
+
+### `QuoteOfTheDay.jsx`
+- Fetches and displays a motivational quote.
+- Positioned at the top of the screen with a fixed, elegant style.
+
+### `EmojiCard.jsx`
+- Represents each mood using emojis and quotes.
+- On click, stores today's mood in `localStorage`.
+
+### `TodayMood.jsx`
+- Displays previously selected moods in small elevated cards.
+- Includes a "Clear History" button aligned at the top-right.
+
+
+
+## 🧠 State & Storage
+
+- Utilizes React's `useState()` and `useEffect()` hooks.
+- Mood data is stored in `localStorage`, so entries persist across page reloads.
+
+---
+
+## 👩‍💻 Author
+
+**Anjana Kumari**  
+Passionate Full Stack Developer from India 🇮🇳
+
+- 💻 Exploring real-world web development  
+- 🔗 Reach me on [LinkedIn](https://www.linkedin.com/in/anjana732) 
+
