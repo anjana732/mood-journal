@@ -1,6 +1,8 @@
 import EmojiCard from './components/EmojiCard'
 import './App.css'
 import QuoteOfTheDay from './components/QuoteOfTheDay';
+import { useState } from 'react';
+import TodayMood from './components/TodayMood';
 
 function App() {
   const emojiObject = [
@@ -45,13 +47,22 @@ function App() {
     }
   ];
 
+  const [selectMood, setSelectMood] = useState("");
+
+  function handleMoodSelect(moodObj){
+    setSelectMood(moodObj);
+  }
+
   return (
     <>
       <QuoteOfTheDay/>
+    <div id="emoji-container">
      {emojiObject.map((mood)=>{
-      return <EmojiCard key={mood.emojiName} {...mood}/>
+      return <EmojiCard key={mood.emojiName} {...mood} onMoodSelect={handleMoodSelect}/>
      } )}
-      
+      </div>
+
+    <TodayMood mood={selectMood}/>
     </>
   )
 }
